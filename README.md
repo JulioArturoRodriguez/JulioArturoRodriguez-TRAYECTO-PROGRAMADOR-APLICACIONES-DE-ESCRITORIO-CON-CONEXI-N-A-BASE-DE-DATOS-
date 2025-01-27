@@ -46,4 +46,4 @@ La aplicación consta de seis paneles principales, cada uno con funcionalidades 
 1. Clona este repositorio en tu máquina local:
 
    ```bash
-   git clone https://github.com/tu-usuario/tu-repositorio.git
+   git clone https://github.com/JulioArturoRodriguez/JulioArturoRodriguez-TRAYECTO-PROGRAMADOR-APLICACIONES-DE-ESCRITORIO-CON-CONEXI-N-A-BASE-DE-DATOS-.git
