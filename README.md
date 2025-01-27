@@ -1,191 +1,49 @@
-openapi: 3.0.0
-info:
-  title: Gestión Comercial
-  description: |
-    **Gestión Comercial** es una aplicación de escritorio desarrollada en Java (última versión) utilizando programación orientada a objetos.
-    Esta aplicación permite gestionar diferentes aspectos comerciales, como:
-    - Registro de asistencia
-    - Manejo de inventario y stock
-    - Gestión de ventas
-    - Administración de usuarios y permisos
-    - Control de entradas y salidas de ventas del día
-    - Gestión de quejas y recomendaciones
+# Documentación de la Aplicación de Escritorio
 
-    **Tecnologías utilizadas**:
-    - Base de datos: MySQL (gestionada con Workbench).
-    - Desarrollo de interfaz gráfica: Modelado de software.
-    - Entorno de desarrollo: Apache NetBeans.
-  version: 1.0.0
-servers:
-  - url: http://localhost:8080/api
-    description: Servidor local para las APIs de Gestión Comercial
-paths:
-  /productos:
-    get:
-      summary: Obtener todos los productos
-      description: Devuelve una lista de todos los productos en el inventario.
-      responses:
-        '200':
-          description: Lista de productos obtenida exitosamente.
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    idProducto:
-                      type: integer
-                      description: ID del producto.
-                    nombre:
-                      type: string
-                      description: Nombre del producto.
-                    cantidad:
-                      type: integer
-                      description: Cantidad disponible en stock.
-                    precio:
-                      type: number
-                      format: float
-                      description: Precio del producto.
-    post:
-      summary: Crear un nuevo producto
-      description: Registra un nuevo producto en el inventario.
-      requestBody:
-        description: Detalles del nuevo producto.
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                nombre:
-                  type: string
-                  description: Nombre del producto.
-                cantidad:
-                  type: integer
-                  description: Cantidad inicial del producto en stock.
-                precio:
-                  type: number
-                  format: float
-                  description: Precio del producto.
-      responses:
-        '201':
-          description: Producto creado exitosamente.
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  idProducto:
-                    type: integer
-                    description: ID del nuevo producto.
-                  nombre:
-                    type: string
-                    description: Nombre del producto.
-                  cantidad:
-                    type: integer
-                    description: Cantidad inicial del producto.
-                  precio:
-                    type: number
-                    format: float
-                    description: Precio del producto.
-  /productos/{id}:
-    get:
-      summary: Obtener un producto específico
-      description: Devuelve los detalles de un producto específico por su ID.
-      parameters:
-        - in: path
-          name: id
-          required: true
-          schema:
-            type: integer
-          description: ID del producto.
-      responses:
-        '200':
-          description: Producto encontrado exitosamente.
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  idProducto:
-                    type: integer
-                    description: ID del producto.
-                  nombre:
-                    type: string
-                    description: Nombre del producto.
-                  cantidad:
-                    type: integer
-                    description: Cantidad disponible en stock.
-                  precio:
-                    type: number
-                    format: float
-                    description: Precio del producto.
-        '404':
-          description: Producto no encontrado.
-    put:
-      summary: Actualizar un producto
-      description: Actualiza los detalles de un producto existente.
-      parameters:
-        - in: path
-          name: id
-          required: true
-          schema:
-            type: integer
-          description: ID del producto a actualizar.
-      requestBody:
-        description: Detalles actualizados del producto.
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                nombre:
-                  type: string
-                  description: Nombre del producto.
-                cantidad:
-                  type: integer
-                  description: Cantidad del producto en stock.
-                precio:
-                  type: number
-                  format: float
-                  description: Precio del producto.
-      responses:
-        '200':
-          description: Producto actualizado exitosamente.
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  idProducto:
-                    type: integer
-                    description: ID del producto.
-                  nombre:
-                    type: string
-                    description: Nombre del producto.
-                  cantidad:
-                    type: integer
-                    description: Cantidad del producto.
-                  precio:
-                    type: number
-                    format: float
-                    description: Precio del producto.
-        '404':
-          description: Producto no encontrado.
-    delete:
-      summary: Eliminar un producto
-      description: Elimina un producto del inventario por su ID.
-      parameters:
-        - in: path
-          name: id
-          required: true
-          schema:
-            type: integer
-          description: ID del producto a eliminar.
-      responses:
-        '204':
-          description: Producto eliminado exitosamente.
-        '404':
-          description: Producto no encontrado.
+## Descripción
+
+Esta aplicación de escritorio ha sido desarrollada utilizando el lenguaje de programación **Java** con enfoque en **Programación Orientada a Objetos**. Para la gestión de datos, se ha integrado una base de datos **MySQL** y se ha utilizado **Workbench** para la creación y gestión de la base de datos.
+
+Además, se ha aplicado **modelado de software** para el diseño de la interfaz gráfica de usuario, lo que asegura una experiencia intuitiva y fluida.
+
+## Características
+
+La aplicación consta de seis paneles principales, cada uno con funcionalidades específicas:
+
+1. **Panel de Registro de Asistencia**  
+   Permite registrar la asistencia de los empleados o usuarios en la aplicación.
+
+2. **Panel de Inventario y Manejo de Stock**  
+   Facilita la gestión de productos, su inventario y las existencias disponibles.
+
+3. **Panel de Ventas**  
+   Ofrece las herramientas necesarias para realizar y gestionar ventas.
+
+4. **Panel de Administración**  
+   Proporciona funciones para la administración general de la aplicación y sus configuraciones.
+
+5. **Panel de Entradas y Salidas**  
+   Muestra las entradas y salidas de productos, incluyendo las ventas del día.
+
+6. **Panel de Quejas y Recomendaciones**  
+   Permite a los usuarios registrar quejas y recomendaciones, facilitando el feedback y mejora continua de la aplicación.
+
+## Tecnologías Utilizadas
+
+- **Lenguaje de Programación**: Java
+- **Base de Datos**: MySQL
+- **Herramienta de Desarrollo**: Apache NetBeans
+- **Modelado de Software**: Diseño de interfaz gráfica
+
+## Requisitos
+
+- **Java JDK**: Versión 8 o superior
+- **MySQL**: Base de datos configurada con Workbench
+- **Apache NetBeans**: Para el desarrollo y ejecución del proyecto
+
+## Instalación
+
+1. Clona este repositorio en tu máquina local:
+
+   ```bash
+   git clone https://github.com/tu-usuario/tu-repositorio.git
